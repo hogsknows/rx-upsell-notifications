@@ -39,10 +39,16 @@ async function writeData(data: KpiCacheEntry[]): Promise<void> {
   await rename(TMP_FILE, DATA_FILE);
 }
 
-/** Natural key that identifies a unique KPI cache slot */
+/**
+ * Natural key that uniquely identifies a KPI cache slot.
+ * userId is included for user-scoped groups (my_recording_network, my_direct_reports)
+ * and is undefined for tenant-wide groups (my_organization).
+ * undefined === undefined, so org-scoped entries still match correctly.
+ */
 function sameSlot(a: KpiCacheEntry, b: KpiCacheEntryInput): boolean {
   return (
     a.tenantId === b.tenantId &&
+    a.userId === b.userId &&
     a.kpiName === b.kpiName &&
     a.userGroup === b.userGroup &&
     a.periodStart === b.periodStart &&
@@ -52,6 +58,8 @@ function sameSlot(a: KpiCacheEntry, b: KpiCacheEntryInput): boolean {
 
 export interface KpiStoreFilters {
   tenantId?: string;
+  /** Filter to a specific user — use for my_recording_network / my_direct_reports lookups */
+  userId?: string;
   entryType?: "value" | "requested";
 }
 
@@ -59,8 +67,8 @@ export interface KpiStore {
   getAll(filters?: KpiStoreFilters): Promise<KpiCacheEntry[]>;
   getByTenant(tenantId: string): Promise<KpiCacheEntry[]>;
   /**
-   * Insert or replace the entry matching the 5-part natural key
-   * (tenantId, kpiName, userGroup, periodStart, periodEnd).
+   * Insert or replace the entry matching the 6-part natural key
+   * (tenantId, userId?, kpiName, userGroup, periodStart, periodEnd).
    * When promoting a "requested" entry to "value", requestedAt is preserved.
    */
   upsert(input: KpiCacheEntryInput): Promise<KpiCacheEntry>;
@@ -73,6 +81,9 @@ export function createKpiStore(): KpiStore {
       let data = await readData();
       if (filters?.tenantId) {
         data = data.filter((e) => e.tenantId === filters.tenantId);
+      }
+      if (filters?.userId) {
+        data = data.filter((e) => e.userId === filters.userId);
       }
       if (filters?.entryType) {
         data = data.filter((e) => e.entryType === filters.entryType);

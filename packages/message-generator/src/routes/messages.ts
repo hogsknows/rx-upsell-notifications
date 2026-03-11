@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { resolveDateRange } from "@uns/shared";
+import { resolveDateRange, USER_SCOPED_GROUPS } from "@uns/shared";
 import { getUserContext } from "../services/hostApiClient.js";
 import { evaluateMessages } from "../services/messageEvaluator.js";
 import { getUserState, markSeen } from "../storage/deliveryStore.js";
@@ -52,9 +52,14 @@ export function createMessagesRouter(): Router {
           dateRange as Parameters<typeof resolveDateRange>[0]
         );
 
+        // User-scoped groups (my_recording_network, my_direct_reports) require userId
+        // so the host can distinguish cache entries between users in the same org.
+        const isUserScoped = (USER_SCOPED_GROUPS as readonly string[]).includes(userGroup);
+
         const body = {
           entryType: "requested",
           tenantId: context.tenantId,
+          ...(isUserScoped && { userId: context.userId }),
           kpiName,
           userGroup,
           periodStart,

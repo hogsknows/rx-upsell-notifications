@@ -14,6 +14,10 @@ packages/message-editor/api/data/messages.json
 # Build outputs
 packages/*/dist/
 packages/*/build/
+*.tsbuildinfo
+
+# Runtime state data
+packages/message-generator/data/delivery-state.json
 
 # Vite
 packages/message-editor/ui/.vite/

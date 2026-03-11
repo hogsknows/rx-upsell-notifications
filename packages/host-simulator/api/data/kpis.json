@@ -209,5 +209,87 @@
     "periodEnd": "2026-02-28",
     "id": "cc0e6a27-b35f-42eb-b46c-ccaf6f73ab94",
     "requestedAt": "2026-03-11T20:22:46.237Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "unTranscribedMinutes",
+    "userGroup": "my_recording_network",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "1a56184f-f709-49b7-837b-397f8eac4831",
+    "requestedAt": "2026-03-11T20:38:39.140Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "unlicencedUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "330c3535-e57e-4c4c-b09d-18fb6c490bff",
+    "requestedAt": "2026-03-11T20:38:39.143Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "activeUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "c11aa3c0-a559-48e0-8563-2df44e6ba3f5",
+    "requestedAt": "2026-03-11T20:38:39.149Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "totalCallsThisMonth",
+    "userGroup": "my_organization",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "e8ac22aa-0382-43cd-bd1c-f9e954775889",
+    "requestedAt": "2026-03-11T20:38:39.156Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "userId": "user-alice-001",
+    "kpiName": "unTranscribedMinutes",
+    "userGroup": "my_recording_network",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "6b6bf139-9a71-42d1-a09a-70800309fdad",
+    "requestedAt": "2026-03-11T20:49:11.377Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "userId": "user-alice-001",
+    "kpiName": "countAbusiveCalls",
+    "userGroup": "my_recording_network",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "19f07969-c53b-45d9-a413-8f99af96a171",
+    "requestedAt": "2026-03-11T20:49:11.480Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "activeUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "391e2556-b1dc-433f-9505-21dccb627adf",
+    "requestedAt": "2026-03-11T20:49:23.714Z"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "totalCallsThisMonth",
+    "userGroup": "my_organization",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "50430e8a-6eca-4ea2-aa4f-5d87415e521f",
+    "requestedAt": "2026-03-11T20:49:23.721Z"
   }
 ]

@@ -2,7 +2,7 @@ import { Router } from "express";
 import { readFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DATE_RANGES, resolveDateRange } from "@uns/shared";
+import { DATE_RANGES, resolveDateRange, USER_SCOPED_GROUPS } from "@uns/shared";
 import type { KpiStore } from "../storage/kpiStore.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -68,27 +68,39 @@ export function createPersonasRouter(kpiStore: KpiStore): Router {
       const cacheEntries = await kpiStore.getByTenant(persona.tenantId);
       const now = new Date();
 
-      // Build scope-keyed kpis map from "value" entries only
+      // Build scope-keyed kpis map from "value" entries only.
+      //
+      // USER_GROUPS to iterate — Release 1 is org-level only, but the loop is
+      // written to handle user-scoped groups (my_recording_network, my_direct_reports)
+      // correctly: for those groups, cache entries are filtered by userId so that
+      // one user's recording network doesn't bleed into another's.
+      const ALL_USER_GROUPS = [RELEASE_1_USER_GROUP] as const; // expand when releasing user-scoped KPIs
       const kpis: Record<string, Record<string, number | string>> = {};
 
-      for (const range of DATE_RANGES) {
-        const { periodStart, periodEnd } = resolveDateRange(range, now);
-        const scopeKey = `${range}|${RELEASE_1_USER_GROUP}`;
+      for (const userGroup of ALL_USER_GROUPS) {
+        const isUserScoped = (USER_SCOPED_GROUPS as readonly string[]).includes(userGroup);
 
-        const valueEntries = cacheEntries.filter(
-          (e) =>
-            e.entryType === "value" &&
-            e.userGroup === RELEASE_1_USER_GROUP &&
-            e.periodStart === periodStart &&
-            e.periodEnd === periodEnd
-        );
+        for (const range of DATE_RANGES) {
+          const { periodStart, periodEnd } = resolveDateRange(range, now);
+          const scopeKey = `${range}|${userGroup}`;
 
-        if (valueEntries.length > 0) {
-          kpis[scopeKey] = Object.fromEntries(
-            valueEntries.map((e) => [e.kpiName, e.value as number | string])
+          const valueEntries = cacheEntries.filter(
+            (e) =>
+              e.entryType === "value" &&
+              e.userGroup === userGroup &&
+              e.periodStart === periodStart &&
+              e.periodEnd === periodEnd &&
+              // For user-scoped groups, only include entries belonging to this user
+              (isUserScoped ? e.userId === persona.id : !e.userId)
           );
+
+          if (valueEntries.length > 0) {
+            kpis[scopeKey] = Object.fromEntries(
+              valueEntries.map((e) => [e.kpiName, e.value as number | string])
+            );
+          }
+          // Scopes with no value entries are intentionally omitted — dormant behaviour
         }
-        // Scopes with no value entries are intentionally omitted — dormant behaviour
       }
 
       res.json({

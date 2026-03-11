@@ -1,6 +1,6 @@
 import { Router } from "express";
 import type { KpiCacheEntryInput } from "@uns/shared";
-import { KPI_PLACEHOLDERS, USER_GROUPS } from "@uns/shared";
+import { KPI_PLACEHOLDERS, USER_GROUPS, USER_SCOPED_GROUPS } from "@uns/shared";
 import type { KpiStore } from "../storage/kpiStore.js";
 
 export function createKpisRouter(store: KpiStore): Router {
@@ -15,7 +15,7 @@ export function createKpisRouter(store: KpiStore): Router {
    */
   router.get("/", async (req, res, next) => {
     try {
-      const { tenantId, entryType } = req.query as Record<string, string | undefined>;
+      const { tenantId, userId, entryType } = req.query as Record<string, string | undefined>;
 
       if (entryType && entryType !== "value" && entryType !== "requested") {
         res.status(400).json({ error: "entryType must be 'value' or 'requested'", code: "BAD_REQUEST" });
@@ -24,6 +24,7 @@ export function createKpisRouter(store: KpiStore): Router {
 
       const entries = await store.getAll({
         tenantId,
+        userId,
         entryType: entryType as "value" | "requested" | undefined,
       });
 
@@ -36,10 +37,12 @@ export function createKpisRouter(store: KpiStore): Router {
   /**
    * PUT /api/kpis
    * Upsert a KPI cache entry. Matches on the natural key:
-   *   (tenantId, kpiName, userGroup, periodStart, periodEnd)
+   *   (tenantId, userId?, kpiName, userGroup, periodStart, periodEnd)
    *
-   * To record that a KPI is needed:   { entryType: "requested", tenantId, kpiName, userGroup, periodStart, periodEnd }
-   * To supply a computed value:        { entryType: "value",     tenantId, kpiName, userGroup, periodStart, periodEnd, value }
+   * userId is required when userGroup is my_recording_network or my_direct_reports.
+   *
+   * To record that a KPI is needed:   { entryType: "requested", tenantId, [userId], kpiName, userGroup, periodStart, periodEnd }
+   * To supply a computed value:        { entryType: "value",     tenantId, [userId], kpiName, userGroup, periodStart, periodEnd, value }
    *
    * Upserting a "value" over a "requested" entry promotes it and preserves requestedAt.
    */
@@ -58,6 +61,13 @@ export function createKpisRouter(store: KpiStore): Router {
       }
       if (!body.userGroup || !(USER_GROUPS as readonly string[]).includes(body.userGroup)) {
         res.status(400).json({ error: `userGroup must be one of: ${USER_GROUPS.join(", ")}`, code: "BAD_REQUEST" });
+        return;
+      }
+      if ((USER_SCOPED_GROUPS as readonly string[]).includes(body.userGroup) && !body.userId) {
+        res.status(400).json({
+          error: `userId is required when userGroup is ${USER_SCOPED_GROUPS.join(" or ")}`,
+          code: "BAD_REQUEST",
+        });
         return;
       }
       if (!body.periodStart || !body.periodEnd) {
