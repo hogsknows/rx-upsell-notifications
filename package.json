@@ -1,0 +1,22 @@
+{
+  "name": "rx-upsell-notifications",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "packages/message-editor/api",
+    "packages/message-editor/ui",
+    "packages/message-generator",
+    "packages/host-simulator/api",
+    "packages/host-simulator/ui"
+  ],
+  "scripts": {
+    "build:shared": "npm run build -w @uns/shared",
+    "dev": "npm run build:shared && concurrently \"npm run dev -w @uns/message-editor-api\" \"npm run dev -w @uns/message-editor-ui\"",
+    "seed": "npm run seed -w @uns/message-editor-api",
+    "build": "npm run build:shared && npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

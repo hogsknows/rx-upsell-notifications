@@ -1,0 +1,22 @@
+node_modules/
+dist/
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Storage data (don't commit message data, use seed script instead)
+packages/message-editor/api/data/messages.json
+
+# Environment
+.env
+.env.local
+
+# Build outputs
+packages/*/dist/
+packages/*/build/
+
+# Vite
+packages/message-editor/ui/.vite/
+
+# Claude Code local session data
+.claude/

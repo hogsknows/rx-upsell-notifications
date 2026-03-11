@@ -1,0 +1,213 @@
+[
+  {
+    "id": "kpi-acme-001",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "unTranscribedMinutes",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 180,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-acme-002",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "totalCallsThisMonth",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 120,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-acme-003",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "averageCallDurationMinutes",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 8,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-acme-004",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "percentCallsUntagged",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 45,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-acme-005",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "activeUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 15,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-acme-006",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "licencedUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 10,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-acme-007",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "unlicencedUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 5,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-001",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "unTranscribedMinutes",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 0,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-002",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "totalCallsThisMonth",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 200,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-003",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "averageCallDurationMinutes",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 12,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-004",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "percentCallsUntagged",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 20,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-005",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "activeUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 25,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-006",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "licencedUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 25,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "kpi-beta-007",
+    "entryType": "value",
+    "tenantId": "tenant-beta-002",
+    "kpiName": "unlicencedUserCount",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": 0,
+    "computedAt": "2026-03-09T06:00:00.000Z"
+  },
+  {
+    "id": "6bd9ac9f-65bd-4047-92b6-0659229fece9",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "wordCloudWord1",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "requestedAt": "2026-03-11T17:19:15.535Z",
+    "value": "billing",
+    "computedAt": "2026-03-11T20:22:27.600Z"
+  },
+  {
+    "id": "15ce0099-7f88-43b1-8821-031c487dc4af",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "wordCloudWord4",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "requestedAt": "2026-03-11T17:19:15.535Z",
+    "value": "invoice",
+    "computedAt": "2026-03-11T20:22:27.844Z"
+  },
+  {
+    "id": "ecf92d35-51f9-4650-9260-d5b5038d3c93",
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "wordCloudWord3",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "requestedAt": "2026-03-11T20:06:55.904Z",
+    "value": "contract",
+    "computedAt": "2026-03-11T20:22:27.756Z"
+  },
+  {
+    "entryType": "value",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "wordCloudWord2",
+    "userGroup": "my_organization",
+    "periodStart": "2026-03-02",
+    "periodEnd": "2026-03-08",
+    "value": "support",
+    "computedAt": "2026-03-11T20:22:27.675Z",
+    "id": "2a5f6aca-4409-4805-a826-095c5635938d"
+  },
+  {
+    "entryType": "requested",
+    "tenantId": "tenant-acme-001",
+    "kpiName": "countAbusiveCalls",
+    "userGroup": "my_recording_network",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "id": "cc0e6a27-b35f-42eb-b46c-ccaf6f73ab94",
+    "requestedAt": "2026-03-11T20:22:46.237Z"
+  }
+]

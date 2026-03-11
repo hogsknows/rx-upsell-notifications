@@ -1,0 +1,32 @@
+.kpi-picker {
+  margin-top: 6px;
+}
+
+.kpi-picker__label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-right: 8px;
+}
+
+.kpi-picker__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.kpi-chip {
+  font-size: 12px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.kpi-chip:hover {
+  background: #dbeafe;
+}

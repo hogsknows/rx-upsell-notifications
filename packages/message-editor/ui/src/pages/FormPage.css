@@ -1,0 +1,39 @@
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.breadcrumb a {
+  color: #6b7280;
+}
+
+.page-id {
+  font-size: 12px;
+  color: #9ca3af;
+  font-family: monospace;
+  margin-top: 2px;
+}
+
+.state-message {
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.state-message--error {
+  color: #dc2626;
+}

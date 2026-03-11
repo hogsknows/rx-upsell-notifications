@@ -1,0 +1,137 @@
+.message-list__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.message-list__table th {
+  background: #f8fafc;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.message-list__table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.message-list__table tr:last-child td {
+  border-bottom: none;
+}
+
+.message-list__table tr:hover td {
+  background: #f9fafb;
+}
+
+.message-list__title {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.message-list__center {
+  text-align: center;
+}
+
+.message-list__actions {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.message-list__empty {
+  text-align: center;
+  padding: 64px 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.message-list__empty p {
+  margin-bottom: 16px;
+  color: #6b7280;
+}
+
+.upgrade-path {
+  font-size: 12px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.muted {
+  color: #9ca3af;
+}
+
+/* Shared button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  transition: background 0.15s;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn--primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn--primary:hover {
+  background: #1d4ed8;
+  text-decoration: none;
+}
+
+.btn--secondary {
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn--secondary:hover {
+  background: #f9fafb;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #2563eb;
+  padding: 4px 8px;
+}
+
+.btn--ghost:hover {
+  background: #eff6ff;
+  text-decoration: none;
+}
+
+.btn--danger {
+  background: transparent;
+  color: #dc2626;
+  padding: 4px 8px;
+}
+
+.btn--danger:hover {
+  background: #fef2f2;
+}
+
+.btn--sm {
+  font-size: 13px;
+  padding: 4px 10px;
+}
